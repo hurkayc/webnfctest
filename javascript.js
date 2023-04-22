@@ -9,6 +9,7 @@ async function readTag() {
             consoleLog("Record type:  " + record.recordType);
             consoleLog("MIME type:    " + record.mediaType);
             consoleLog("=== data ===\n" + decoder.decode(record.data));
+            consoleLog("Serial:    " + record.serialNumber);
           }
         }
       } catch(error) {
