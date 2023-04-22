@@ -1,4 +1,4 @@
-async function readTag() {
+async function readTag(record) {
     if ("NDEFReader" in window) {
       const ndef = new NDEFReader();
       try {
@@ -6,12 +6,12 @@ async function readTag() {
         ndef.onreading = event => {
           console.assert(record.recordType === "mime");
           const decoder = new TextDecoder();
-          for (const record of event.message.records) {
+          console.log(`JSON: ${JSON.parse(decoder.decode(record.data))}`);
+          /* for (const record of event.message.records) {
             consoleLog("Record type:  " + record.recordType);
             consoleLog("MIME type:    " + record.mediaType);
-            console.log(`JSON: ${JSON.parse(decoder.decode(record.data))}`);
-            consoleLog("Serial:    " + record.serialNumber);
-          }
+            consoleLog("=== data ===\n" + decoder.decode(record.data));
+          } */
         }
       } catch(error) {
         consoleLog(error);
