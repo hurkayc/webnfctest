@@ -10,6 +10,7 @@ async function readTag() {
             consoleLog("Record type:  " + record.recordType);
             consoleLog("ID:  " + record.serialNumber);
             consoleLog("ID2:  " + ndef.serialNumber);
+            consoleLog("ID3:  " + event.serialNumber);
             consoleLog("MIME type:    " + record.mediaType);
             consoleLog("=== data ===\n" + decoder.decode(record.data));
           }
