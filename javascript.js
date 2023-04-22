@@ -6,9 +6,9 @@ async function readTag() {
         ndef.onreading = event => {
           // console.assert(record.recordType === "text");
           const decoder = new TextDecoder();
-          console.log(`JSON: ${JSON.parse(decoder.decode(record.data))}`);
           for (const record of event.message.records) {
             consoleLog("Record type:  " + record.recordType);
+            consoleLog("ID:  " + record.serialNumber);
             consoleLog("MIME type:    " + record.mediaType);
             consoleLog("=== data ===\n" + decoder.decode(record.data));
           }
