@@ -1,10 +1,10 @@
-async function readTag(record) {
+async function readTag() {
     if ("NDEFReader" in window) {
       const ndef = new NDEFReader();
       try {
         await ndef.scan();
         ndef.onreading = event => {
-          console.assert(record.recordType === "text");
+          // console.assert(record.recordType === "text");
           const decoder = new TextDecoder();
           console.log(`JSON: ${JSON.parse(decoder.decode(record.data))}`);
           for (const record of event.message.records) {
