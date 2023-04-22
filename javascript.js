@@ -7,10 +7,8 @@ async function readTag() {
           // console.assert(record.recordType === "text");
           const decoder = new TextDecoder();
           for (const record of event.message.records) {
-            consoleLog("Record type:  " + record.recordType);
-            consoleLog("ID:  " + record.serialNumber);
-            consoleLog("ID2:  " + ndef.serialNumber);
             consoleLog("ID3:  " + event.serialNumber);
+            consoleLog("Record type:  " + record.recordType);
             consoleLog("MIME type:    " + record.mediaType);
             consoleLog("=== data ===\n" + decoder.decode(record.data));
           }
